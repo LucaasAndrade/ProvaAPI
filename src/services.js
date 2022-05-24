@@ -41,17 +41,18 @@ export function corPrimaria(cor){
 }
 
 export function ingressoCinema(qtdInteiras, qtdMeias, nacionalidade, diaSemana){
+    let valorInteira = 28.5;
+    let valorMeia = valorInteira / 2;
     let resultado = 0;
-    if(diaSemana == 'quarta')
-    {
-        resultado = qtdInteiras + qtdMeias * (28.5 / 2)
+    if(nacionalidade == "brasileira"){
+        resultado = (qtdInteiras + qtdMeias) * 5;
     }
-    else if(nacionalidade = "brasileira"){
-        resultado = qtdInteiras + qtdMeias * 5;
+    else if(diaSemana == 'quarta')
+    {
+        resultado = (qtdInteiras + qtdMeias ) * valorMeia;
     }
     else{
-        resultado = qtdInteiras * 28.5;
-        resultado += qtdMeias * (28.5 / 2);
+        resultado = (qtdInteiras * valorInteira) + (qtdMeias * valorMeia);
     }
     return resultado
 } 
