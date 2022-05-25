@@ -110,3 +110,20 @@ server.post('/dia2/ingressosCinema', (req, resp) => {
         });
     }
 });
+
+server.post('/dia2/maiorNumero', (req, resp) => {
+    try{
+        let { a } = req.body;
+        let x = maiorNumero(a);
+
+        resp.send({
+            Maior: x
+        });
+    }
+    catch(err) {
+        resp.send({
+            erro: "Algo deu errado",
+            type: err.message
+        });
+    }
+});

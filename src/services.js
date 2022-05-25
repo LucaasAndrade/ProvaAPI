@@ -59,4 +59,13 @@ export function ingressoCinema(qtdInteiras, qtdMeias, nacionalidade, diaSemana){
     return resultado
 } 
 
+export function maiorNumero(numeros) {
+    let maior = Number.MIN_VALUE;
+    for (let item of numeros) {
+            if (item > maior)
+                maior = item;
+    }
+    return maior;
+}
+
 
