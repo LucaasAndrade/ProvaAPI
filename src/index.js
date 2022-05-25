@@ -2,7 +2,7 @@ import 'dotenv/config';
 
 import {
      soma, dobro, temp, corPrimaria, ingressoCinema, media, maiorNumero,
-     frequenciaCaracter 
+     frequenciaCaracter, tabuada
     } from './services.js';
 import express from 'express';
 import cors from 'cors';
@@ -96,7 +96,6 @@ server.get('/dia2/corprimaria/:cor', (req, resp) => {
     }
 });
 
-
 server.post('/dia2/ingressosCinema', (req, resp) => {
     try{
         let { inteiras, meias, dia, nacionalidade} = req.body;
@@ -131,7 +130,6 @@ server.post('/dia2/maiorNumero', (req, resp) => {
     }
 });
 
-
 server.get('/dia2/freqCaracter/:texto/:caracter', (req, resp) => {
     try{
         let x = frequenciaCaracter(req.params.texto, req.params.caracter);
@@ -140,6 +138,23 @@ server.get('/dia2/freqCaracter/:texto/:caracter', (req, resp) => {
         });
     }
     catch(err) {
+        resp.send({
+            erro: "Algo deu errado",
+            type: err.message
+        });
+    }
+});
+
+server.get('/tabuada', (req, resp) => {
+    try{
+        let { numero } = req.query;
+        let x = tabuada(Number(numero));
+
+        resp.send({
+            tabuada: x
+        })
+    }
+    catch(err){
         resp.send({
             erro: "Algo deu errado",
             type: err.message
