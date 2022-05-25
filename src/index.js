@@ -1,6 +1,6 @@
 import 'dotenv/config';
 
-import { soma, dobro, temp, corPrimaria, ingressoCinema, media } from './services.js';
+import { soma, dobro, temp, corPrimaria, ingressoCinema, media, maiorNumero } from './services.js';
 import express from 'express';
 import cors from 'cors';
 ;
