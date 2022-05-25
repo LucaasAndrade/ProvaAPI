@@ -45,6 +45,23 @@ server.get('/somar', (req, resp) => {
     }
 });
 
+server.get('/media', (req, resp) => {
+    try{
+        let {num1, num2, num3} = req.query;
+        let x = media(Number(num1), Number(num2), Number(num3));
+
+        resp.send({
+            Media: x
+        })
+    }
+    catch(err){
+        resp.send({
+            erro: "Algo deu errado",
+            type: err.message
+        });
+    }
+});
+
 server.get('/temperatura', (req, resp) => {
     try {
         let { t } = req.query;
@@ -61,10 +78,10 @@ server.get('/temperatura', (req, resp) => {
 
 server.get('/dia2/corprimaria/:cor', (req, resp) => {
     try{
-        let { a } = req.params.cor;
-        let x = corPrimaria(a);
+        let x = corPrimaria(req.params.cor);
 
         resp.send({
+            a: req.params.cor,
             primaria: x
         })
     }
@@ -87,23 +104,6 @@ server.post('/dia2/ingressosCinema', (req, resp) => {
         });
     }
     catch(err) {
-        resp.send({
-            erro: "Algo deu errado",
-            type: err.message
-        });
-    }
-});
-
-server.get('/media', (req, resp) => {
-    try{
-        let {num1, num2, num3} = req.query;
-        let x = media(Number(num1), Number(num2), Number(num3));
-
-        resp.send({
-            Media: x
-        })
-    }
-    catch(err){
         resp.send({
             erro: "Algo deu errado",
             type: err.message

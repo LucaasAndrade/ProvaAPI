@@ -8,6 +8,11 @@ export function dobro(numero){
     return cont
 }
 
+export function media(num1, num2, num3) {
+    let x = (num1 + num2 + num3) / 3;
+    return x;
+}
+
 export function temp(numero){
     let msg= '';
     if(numero >= 38)
@@ -32,12 +37,9 @@ export function tabuada(numero) {
 }   
 
 
-export function corPrimaria(cor){
-    let a = false
-    if(cor == "azul" || cor == "vermelho" || cor == "amarelo") {
-        a = true
-    }
-    return a;
+export function corPrimaria(cor) {
+    cor = cor.toLowerCase();
+    return cor == 'azul' || cor == 'amarelo'|| cor == 'vermelho'
 }
 
 export function ingressoCinema(qtdInteiras, qtdMeias, nacionalidade, diaSemana){
@@ -57,8 +59,3 @@ export function ingressoCinema(qtdInteiras, qtdMeias, nacionalidade, diaSemana){
     return resultado
 } 
 
-
-export function media(num1, num2, num3) {
-    let x = (num1 + num2 + num3) / 3;
-    return x;
-}
