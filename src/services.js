@@ -59,3 +59,4 @@ export function ingressoCinema(qtdInteiras, qtdMeias, nacionalidade, diaSemana){
     return resultado
 } 
 
+

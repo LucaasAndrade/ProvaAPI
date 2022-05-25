@@ -45,9 +45,9 @@ server.get('/somar', (req, resp) => {
     }
 });
 
-server.get('/media', (req, resp) => {
+server.post('/media', (req, resp) => {
     try{
-        let {num1, num2, num3} = req.query;
+        let {num1, num2, num3} = req.body;
         let x = media(Number(num1), Number(num2), Number(num3));
 
         resp.send({
