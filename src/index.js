@@ -1,9 +1,12 @@
 import 'dotenv/config';
 
-import { soma, dobro, temp, corPrimaria, ingressoCinema, media, maiorNumero } from './services.js';
+import {
+     soma, dobro, temp, corPrimaria, ingressoCinema, media, maiorNumero,
+     frequenciaCaracter 
+    } from './services.js';
 import express from 'express';
 import cors from 'cors';
-;
+
 
 const server = express();
 server.use(cors());
@@ -118,6 +121,22 @@ server.post('/dia2/maiorNumero', (req, resp) => {
 
         resp.send({
             Maior: x
+        });
+    }
+    catch(err) {
+        resp.send({
+            erro: "Algo deu errado",
+            type: err.message
+        });
+    }
+});
+
+
+server.get('/dia2/freqCaracter/:texto/:caracter', (req, resp) => {
+    try{
+        let x = frequenciaCaracter(req.params.texto, req.params.caracter);
+        resp.send({
+            freq: x
         });
     }
     catch(err) {

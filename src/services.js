@@ -68,4 +68,11 @@ export function maiorNumero(numeros) {
     return maior;
 }
 
-
+export function frequenciaCaracter(texto, caractere) {
+    let qtd = 0;
+    for (let letra of texto) {
+            if (letra == caractere)
+                qtd++
+    }
+    return qtd;
+}
