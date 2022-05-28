@@ -89,7 +89,7 @@ server.get('/dia2/corprimaria/:cor', (req, resp) => {
 
 server.post('/dia2/ingressosCinema', (req, resp) => {
     try{
-        let { inteiras, meias, dia, nacionalidade} = req.body;
+        let { inteiras, meias, nacionalidade, dia} = req.body;
         let x = ingressoCinema(Number(inteiras), Number(meias), nacionalidade, dia);
 
         resp.send({
@@ -106,11 +106,11 @@ server.post('/dia2/ingressosCinema', (req, resp) => {
 
 server.post('/dia2/maiorNumero', (req, resp) => {
     try{
-        let { a } = req.body;
+        let a = req.body;
         let x = maiorNumero(a);
 
         resp.send({
-            Maior: x
+            maior: x
         });
     }
     catch(err) {
